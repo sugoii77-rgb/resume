@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오영환 (Oh Young-Hwan) - 이력서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2a5298;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #2a5298;
+        }
+        
+        .experience-item {
+            background: white;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .company {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .period {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .position {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+        
+        .achievements {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+        
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .skill-category h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .language-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .language-item:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+        
+        .language-name {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .language-level {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .achievements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .achievement-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #764ba2;
+        }
+        
+        .achievement-title {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">오영환</h1>
+                <h2 class="name" style="font-size: 1.5em; margin-top: 5px;">Oh Young-Hwan</h2>
+                <p class="title">Senior Automotive & Hydrogen Energy Engineer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>sugoii77@gmail.net</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span>16+ Years Experience</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌏</span>
+                        <span>Global Project Leader</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <section class="section">
+                <h3 class="section-title">경력 요약 | Career Summary</h3>
+                <div class="summary">
+                    16년 이상 자동차 부품 및 수소에너지 분야에서 설계, 신기술 개발, 생산기술 리더십을 두루 경험한 시니어 엔지니어. 현대·기아, 르노삼성 등 주요 완성차 OEM과의 협업을 통해 다수의 배기계 및 에너지 저장 시스템 개발 프로젝트를 성공적으로 양산까지 이끌었으며, <strong>국내 최초 배기열회수장치(Exhaust Heat Recovery System) Gen1/Gen2 개발</strong>과 <strong>수소 상용차용 저장시스템 개발</strong>을 주도했습니다. 글로벌 프로젝트 경험과 3개 국어 능력을 바탕으로 한 기술 리더십과 프로젝트 매니지먼트 역량을 보유하고 있습니다.
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">언어 능력 | Language Skills</h3>
+                <div class="language-grid">
+                    <div class="language-item">
+                        <div class="language-name">한국어 | Korean</div>
+                        <div class="language-level">모국어 (Native)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">영어 | English</div>
+                        <div class="language-level">상급 (Fluent)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">일본어 | Japanese</div>
+                        <div class="language-level">상급 (Fluent)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">중국어 | Chinese</div>
+                        <div class="language-level">중급 (Intermediate)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">주요 경력 | Professional Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="company">포레시아 코리아 (Faurecia Korea)</div>
+                    <div class="period">2008.04 ~ 현재 (16+ years) | 현대·기아 1차 협력사</div>
+                    
+                    <div style="margin-top: 20px;">
+                        <div class="position">💼 수소사업부 생산기술팀장 (2021 ~ 현재)</div>
+                        <ul class="achievements">
+                            <li><strong>XCIENT 수소전기트럭</strong> 수소탱크 및 저장시스템 개발 및 SOP(Start of Production) 성공적 완료</li>
+                            <li>현재 <strong>MEGC(Multiple Element Gas Container)용 XL Type 4 수소탱크</strong> 개발 프로젝트 리딩</li>
+                            <li>글로벌 수소탱크 인증·품질 요구사항(ISO 11439, ECE R134 등)에 부합하는 생산기술 설계 및 최적화</li>
+                            <li>수소 저장시스템 양산 공정 설계 및 품질관리 시스템 구축</li>
+                            <li>해외 수소탱크 제조업체와의 기술 협력 및 글로벌 공급망 관리</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <div class="position">🔬 신기술 사업부 팀장 (2014 ~ 2021)</div>
+                        <ul class="achievements">
+                            <li>포레시아 본사와 공동 개발로 <strong>국내 최초 배기열회수장치(EHR) Gen1, Gen2 개발</strong> 성공</li>
+                            <li>연비 개선 5-8% 달성하는 고효율 배기열회수 기술 상용화 주도</li>
+                            <li>배출가스 저감 및 냉간시동 성능 향상 기술 개발</li>
+                            <li>신기술 특허 출원 및 기술 이전 프로세스 관리</li>
+                            <li>글로벌 완성차 업체 대상 신기술 마케팅 및 비즈니스 개발</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <div class="position">🎯 설계팀원 → PDL(Project Development Leader) (2008 ~ 2014)</div>
+                        <ul class="achievements">
+                            <li>현대·기아, 르노삼성 등 주요 OEM 대상 <strong>30+ 배기계 개발 프로젝트</strong> 기획·설계·검증·양산 전 과정 성공 수행</li>
+                            <li>승용차 및 상용차 배기시스템, 소음저감장치(머플러) 설계 및 최적화</li>
+                            <li>CAE 해석(유동, 진동, 소음) 및 실차 성능 검증</li>
+                            <li>고객 요구사항 분석 및 기술 제안서 작성</li>
+                            <li>양산 품질 이슈 해결 및 지속적 개선 활동</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">주요 성과 | Key Achievements</h3>
+                <div class="achievements-list">
+                    <div class="achievement-card">
+                        <div class="achievement-title">🏆 국내 최초 기술 개발</div>
+                        <p>배기열회수장치(EHR) Gen1/Gen2 개발 및 양산화 성공으로 연비 개선 및 배출가스 저감 기술 상용화</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-title">🚛 수소 상용차 프로젝트</div>
+                        <p>현대 XCIENT 수소전기트럭용 수소 저장시스템 개발 및 SOP 달성, 상용 수소차 양산 기반 구축</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-title">🌏 글로벌 프로젝트 리더십</div>
+                        <p>현대·기아, 르노삼성 등 다수 OEM과 30+ 글로벌 프로젝트 수행 및 성공적 양산 달성</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-title">💡 차세대 기술 개발</div>
+                        <p>MEGC용 초대형 수소탱크(XL Tank) 개발 리딩 및 Type 4 수소탱크 기술 혁신</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-title">📈 비즈니스 성장</div>
+                        <p>신기술 개발을 통한 신규 사업 영역 확장 및 수소에너지 분야 시장 선점</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-title">🔄 전주기 경험</div>
+                        <p>설계·개발·생산기술 전 주기에 걸친 프로젝트 매니지먼트 역량 및 팀 리더십 확보</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">기술 역량 | Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🚗 자동차 기술</h4>
+                        <p>배기계 설계 및 해석<br>CAE 시뮬레이션<br>차량 성능 최적화<br>배출가스 저감 기술</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>⚡ 수소에너지</h4>
+                        <p>수소 저장시스템 설계<br>Type 4 수소탱크 기술<br>압력용기 안전 설계<br>수소차 양산 기술</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🔬 신기술 개발</h4>
+                        <p>배기열회수장치(EHR)<br>에너지 효율 기술<br>특허 출원 및 관리<br>기술 상용화</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>📊 프로젝트 관리</h4>
+                        <p>글로벌 프로젝트 리딩<br>OEM 고객 대응<br>품질·안전 규격 대응<br>팀 리더십</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🏭 생산기술</h4>
+                        <p>양산 공정 설계<br>품질관리 시스템<br>생산성 최적화<br>공급망 관리</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🌐 글로벌 역량</h4>
+                        <p>다국어 커뮤니케이션<br>해외 업체 협력<br>글로벌 인증 대응<br>기술 마케팅</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">전문 분야 | Areas of Expertise</h3>
+                <div class="summary">
+                    <strong>🎯 핵심 전문 영역:</strong> 자동차 배기계 시스템 설계 및 최적화, 수소 저장시스템 개발, 배기열회수 기술, 친환경 에너지 솔루션<br><br>
+                    <strong>🔧 기술적 강점:</strong> CAE 해석 및 시뮬레이션, 압력용기 안전 설계, 글로벌 인증 대응, 양산 공정 최적화<br><br>
+                    <strong>👥 리더십 역량:</strong> 다국적 팀 리딩, 고객 기술 협상, 신기술 사업화, 프로젝트 전주기 관리
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // 스크롤 애니메이션 효과
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 모든 섹션에 애니메이션 적용
+        document.querySelectorAll('.section, .experience-item, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // 연락처 정보 클릭 이벤트
+        document.querySelector('.contact-item').addEventListener('click', function() {
+            if (this.textContent.includes('sugoii77@gmail.net')) {
+                window.location.href = 'mailto:sugoii77@gmail.net';
+            }
+        });
+    </script>
+</body>
+</html>
