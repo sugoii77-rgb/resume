@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+.language-switcher {
+                flex-direction: column;
+                top: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            
+            .lang-btn {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -30,6 +40,39 @@
             overflow: hidden;
         }
         
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: #1e3c72;
+            border-color: white;
+        }
+
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -278,28 +321,49 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .language-switcher {
+                flex-direction: column;
+                top: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            
+            .lang-btn {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="kr">KR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="jp">JP</button>
+                <button class="lang-btn" data-lang="cn">CN</button>
+            </div>
             <div class="header-content">
                 <h1 class="name">오영환</h1>
-                <h2 class="name" style="font-size: 1.5em; margin-top: 5px;">Oh Young-Hwan</h2>
-                <p class="title">Senior Automotive & Hydrogen Energy Engineer</p>
+                <h2 class="name" style="font-size: 1.5em; margin-top: 5px;" data-en="Oh Young-Hwan" data-jp="オ・ヨンファン" data-cn="吴英焕">Oh Young-Hwan</h2>
+                <p class="title" data-en="Senior Automotive & Hydrogen Energy Engineer" data-jp="シニア自動車・水素エネルギーエンジニア" data-cn="高级汽车与氢能源工程师">Senior Automotive & Hydrogen Energy Engineer</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📧</span>
                         <span>sugoii77@gmail.net</span>
+                        <div class="skill-category">
+                        <h4>🌐 글로벌 역량</h4>
+                        <p>다국어 커뮤니케이션<br>해외 업체 협력<br>글로벌 인증 대응<br>기술 마케팅</p>
                     </div>
                     <div class="contact-item">
                         <span>💼</span>
-                        <span>16+ Years Experience</span>
+                        <span data-en="16+ Years Experience" data-jp="16年以上の経験" data-cn="16年以上工作经验">16+ Years Experience</span>
                     </div>
                     <div class="contact-item">
                         <span>🌏</span>
-                        <span>Global Project Leader</span>
+                        <span data-en="Global Project Leader" data-jp="グローバルプロジェクトリーダー" data-cn="全球项目负责人">Global Project Leader</span>
                     </div>
                 </div>
             </div>
@@ -307,8 +371,8 @@
         
         <div class="content">
             <section class="section">
-                <h3 class="section-title">경력 요약 | Career Summary</h3>
-                <div class="summary">
+                <h3 class="section-title" data-en="Career Summary" data-jp="経歴要約" data-cn="职业概要">경력 요약 | Career Summary</h3>
+                <div class="summary" data-en="A senior engineer with over 16 years of experience in automotive components and hydrogen energy, covering design, new technology development, and production technology leadership. Successfully led numerous exhaust system and energy storage system development projects from concept to mass production through collaboration with major automotive OEMs including Hyundai-Kia and Renault Samsung. Pioneered Korea's first Exhaust Heat Recovery (EHR) System Gen1/Gen2 development and led hydrogen storage system development for commercial vehicles. Possesses technical leadership and project management capabilities based on global project experience and trilingual proficiency." data-jp="自動車部品および水素エネルギー分野で16年以上にわたり、設計、新技術開発、生産技術リーダーシップを幅広く経験したシニアエンジニア。現代・起亜、ルノーサムスンなど主要完成車OEMとの協業により、多数の排気系およびエネルギー貯蔵システム開発プロジェクトを量産まで成功裏に導いた。韓国初の排気熱回収装置（EHR）Gen1/Gen2開発と水素商用車用貯蔵システム開発を主導。グローバルプロジェクト経験と3カ国語能力に基づく技術リーダーシップとプロジェクト管理能力を保有。" data-cn="在汽车零部件和氢能源领域拥有16年以上经验，涵盖设计、新技术开发、生产技术领导等方面的高级工程师。通过与现代起亚、雷诺三星等主要整车OEM的合作，成功地将多个排气系统和能源存储系统开发项目推向量产。主导了韩国首个排气热回收装置(EHR)Gen1/Gen2的开发和氢商用车存储系统的开发。基于全球项目经验和三语能力，具备技术领导力和项目管理能力。">
                     16년 이상 자동차 부품 및 수소에너지 분야에서 설계, 신기술 개발, 생산기술 리더십을 두루 경험한 시니어 엔지니어. 현대·기아, 르노삼성 등 주요 완성차 OEM과의 협업을 통해 다수의 배기계 및 에너지 저장 시스템 개발 프로젝트를 성공적으로 양산까지 이끌었으며, <strong>국내 최초 배기열회수장치(Exhaust Heat Recovery System) Gen1/Gen2 개발</strong>과 <strong>수소 상용차용 저장시스템 개발</strong>을 주도했습니다. 글로벌 프로젝트 경험과 3개 국어 능력을 바탕으로 한 기술 리더십과 프로젝트 매니지먼트 역량을 보유하고 있습니다.
                 </div>
             </section>
@@ -350,6 +414,7 @@
                             <li>글로벌 수소탱크 인증·품질 요구사항(ISO 11439, ECE R134 등)에 부합하는 생산기술 설계 및 최적화</li>
                             <li>수소 저장시스템 양산 공정 설계 및 품질관리 시스템 구축</li>
                             <li>해외 수소탱크 제조업체와의 기술 협력 및 글로벌 공급망 관리</li>
+                            <li>양산 품질 이슈 해결 및 지속적 개선 활동</li>
                         </ul>
                     </div>
                     
@@ -369,9 +434,9 @@
                         <ul class="achievements">
                             <li>현대·기아, 르노삼성 등 주요 OEM 대상 <strong>30+ 배기계 개발 프로젝트</strong> 기획·설계·검증·양산 전 과정 성공 수행</li>
                             <li>승용차 및 상용차 배기시스템, 소음저감장치(머플러) 설계 및 최적화</li>
-                            <li>CAE 해석(유동, 진동, 소음) 및 실차 성능 검증</li>
+                            <li>실차 성능 검증 및 데이터 분석</li>
                             <li>고객 요구사항 분석 및 기술 제안서 작성</li>
-                            <li>양산 품질 이슈 해결 및 지속적 개선 활동</li>
+                            <li>MS Office 및 AI 도구를 활용한 업무 효율화 및 프로젝트 관리</li>
                         </ul>
                     </div>
                 </div>
@@ -419,6 +484,10 @@
                         <p>수소 저장시스템 설계<br>Type 4 수소탱크 기술<br>압력용기 안전 설계<br>수소차 양산 기술</p>
                     </div>
                     <div class="skill-category">
+                        <h4>💻 디지털 역량</h4>
+                        <p>MS Office 고급 활용<br>AI 기반 사무자동화<br>데이터 분석 및 시각화<br>업무 프로세스 최적화</p>
+                    </div>
+                    <div class="skill-category">
                         <h4>🔬 신기술 개발</h4>
                         <p>배기열회수장치(EHR)<br>에너지 효율 기술<br>특허 출원 및 관리<br>기술 상용화</p>
                     </div>
@@ -430,10 +499,6 @@
                         <h4>🏭 생산기술</h4>
                         <p>양산 공정 설계<br>품질관리 시스템<br>생산성 최적화<br>공급망 관리</p>
                     </div>
-                    <div class="skill-category">
-                        <h4>🌐 글로벌 역량</h4>
-                        <p>다국어 커뮤니케이션<br>해외 업체 협력<br>글로벌 인증 대응<br>기술 마케팅</p>
-                    </div>
                 </div>
             </section>
 
@@ -441,7 +506,7 @@
                 <h3 class="section-title">전문 분야 | Areas of Expertise</h3>
                 <div class="summary">
                     <strong>🎯 핵심 전문 영역:</strong> 자동차 배기계 시스템 설계 및 최적화, 수소 저장시스템 개발, 배기열회수 기술, 친환경 에너지 솔루션<br><br>
-                    <strong>🔧 기술적 강점:</strong> CAE 해석 및 시뮬레이션, 압력용기 안전 설계, 글로벌 인증 대응, 양산 공정 최적화<br><br>
+                    <strong>🔧 기술적 강점:</strong> MS Office 및 AI 활용 사무자동화, 압력용기 안전 설계, 글로벌 인증 대응, 양산 공정 최적화<br><br>
                     <strong>👥 리더십 역량:</strong> 다국적 팀 리딩, 고객 기술 협상, 신기술 사업화, 프로젝트 전주기 관리
                 </div>
             </section>
@@ -449,6 +514,94 @@
     </div>
 
     <script>
+        // 언어 전환 기능
+        const translations = {
+            kr: {
+                title: "Senior Automotive & Hydrogen Energy Engineer",
+                experience: "16+ Years Experience",
+                globalLeader: "Global Project Leader",
+                careerSummary: "경력 요약 | Career Summary",
+                languageSkills: "언어 능력 | Language Skills",
+                professionalExp: "주요 경력 | Professional Experience",
+                keyAchievements: "주요 성과 | Key Achievements",
+                technicalSkills: "기술 역량 | Technical Skills",
+                expertise: "전문 분야 | Areas of Expertise"
+            },
+            en: {
+                title: "Senior Automotive & Hydrogen Energy Engineer",
+                experience: "16+ Years Experience", 
+                globalLeader: "Global Project Leader",
+                careerSummary: "Career Summary",
+                languageSkills: "Language Skills",
+                professionalExp: "Professional Experience",
+                keyAchievements: "Key Achievements",
+                technicalSkills: "Technical Skills",
+                expertise: "Areas of Expertise"
+            },
+            jp: {
+                title: "シニア自動車・水素エネルギーエンジニア",
+                experience: "16年以上の経験",
+                globalLeader: "グローバルプロジェクトリーダー",
+                careerSummary: "経歴要約",
+                languageSkills: "言語能力",
+                professionalExp: "主要経歴",
+                keyAchievements: "主要成果",
+                technicalSkills: "技術スキル",
+                expertise: "専門分野"
+            },
+            cn: {
+                title: "高级汽车与氢能源工程师",
+                experience: "16年以上工作经验",
+                globalLeader: "全球项目负责人",
+                careerSummary: "职业概要",
+                languageSkills: "语言能力",
+                professionalExp: "主要工作经历",
+                keyAchievements: "主要成就",
+                technicalSkills: "技术能力",
+                expertise: "专业领域"
+            }
+        };
+
+        // 언어 전환 함수
+        function switchLanguage(lang) {
+            // 활성 버튼 변경
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+
+            // 다국어 텍스트 변경
+            document.querySelectorAll('[data-en], [data-jp], [data-cn]').forEach(element => {
+                if (lang === 'kr') {
+                    // 한국어는 원본 텍스트 사용
+                    return;
+                }
+                
+                const translatedText = element.getAttribute(`data-${lang}`);
+                if (translatedText) {
+                    element.textContent = translatedText;
+                }
+            });
+
+            // 섹션 제목 변경
+            const sectionTitles = document.querySelectorAll('.section-title');
+            const titleKeys = ['careerSummary', 'languageSkills', 'professionalExp', 'keyAchievements', 'technicalSkills', 'expertise'];
+            
+            sectionTitles.forEach((title, index) => {
+                if (titleKeys[index] && translations[lang]) {
+                    title.textContent = translations[lang][titleKeys[index]];
+                }
+            });
+        }
+
+        // 언어 버튼 이벤트 리스너
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+
         // 스크롤 애니메이션 효과
         const observerOptions = {
             threshold: 0.1,
